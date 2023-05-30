@@ -21,10 +21,10 @@ def obter_moeda():
     return jsonify(moeda)
 
 #Consultar moeda por (id)
-@app.route('/moeda/<int:id>',methods=['GET'])
-def obter_moeda_id(id):
+@app.route('/moeda/<string:autor>',methods=['GET'])
+def obter_moeda_id(autor):
     for moedas_id in moeda:
-        if moedas_id.get('id') == id:
+        if moedas_id.get('autor') == autor:
             return jsonify(moedas_id)
      
 app.run(port=5000, host='localhost', debug=True)
